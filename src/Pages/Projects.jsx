@@ -5,13 +5,13 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
-function Home() {
+function Projects() {
 
   return (
     <>
-      <h1>Home Page</h1>
+      <h1>Projects Page</h1>
     </>
   )
 }
 
-export default Home
+export default Projects

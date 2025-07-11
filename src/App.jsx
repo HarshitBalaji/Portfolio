@@ -1,32 +1,39 @@
 import { useState } from 'react'
+import { getCalApi } from "@calcom/embed-react";
+import { useEffect } from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import 'primereact/resources/themes/lara-light-blue/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+import 'primeflex/primeflex.css';
 import Logo from './assets/logo.png'
 import './App.css'
+import Display from './Pages/Display';
+import Projects from './Pages/Projects';
+import CV from './Pages/CV';
+import Contact from './Pages/Contact_Me';
+import Home from './Pages/Home';  
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={Logo} className="logo react" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={Logo} className="logo react" alt="React logo" />
-        </a>
+      <div className="content">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Display />}>
+              <Route index element={<Home />} />
+              <Route path="about" element={<CV />} />
+              <Route path="projects" element={<Projects />} />
+              <Route path="contact" element={<Contact />} />
+              <Route path="*" element={<Home />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Welcome to Sai Harshit's Portfolio! This is a simple Vite + React app.'
-      </p>
+      <footer>
+        <p>© 2023 My Portfolio</p>
+      </footer>
     </>
   )
 }
