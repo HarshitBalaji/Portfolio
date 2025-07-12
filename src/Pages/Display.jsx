@@ -11,7 +11,7 @@ function Display() {
     <header>
       <Navbar />
     </header>
-    <div className='w-full h-full'>
+    <div className='content'>
       <Outlet />
     </div>
     </>

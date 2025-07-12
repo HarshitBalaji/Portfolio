@@ -18,7 +18,7 @@ import Home from './Pages/Home';
 function App() {
   return (
     <>
-      <div className="content">
+      <div className="app">
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Display />}>
@@ -32,7 +32,7 @@ function App() {
         </BrowserRouter>
       </div>
       <footer>
-        <p>© 2023 My Portfolio</p>
+        <p>© 2025 Sai Harshit B</p>
       </footer>
     </>
   )
