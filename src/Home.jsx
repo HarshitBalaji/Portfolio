@@ -49,11 +49,11 @@ function Home() {
   return (
     <div id = "home">
       <div className="flex align-items-center">
-            <img src={Logo} alt="logo" height="65" />
+            <img src={Logo} alt="logo" height="50" />
       </div>
       <h3 style={{ marginTop: '50px' }}>Hello, I'm</h3>
       <h1 id="Name">Sai Harshit B</h1>
-      <p>Building Platforms | Automating Workflows | Engineering Robotic Systems — Together.</p>
+      <p id="tagline">Building Platforms | Automating Workflows | Engineering Robotic Systems — Together.</p>
       <CTA />
       <p id="bottomline">sai.harshitbalaji@gmail.com</p>
     </div>
