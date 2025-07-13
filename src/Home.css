@@ -33,3 +33,23 @@
   font-size: 0.7em;
   margin-top: 0.5rem;
 }
+
+.CTA
+{
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+  font-size: 1.2rem;
+}
+
+.options
+{
+  margin-right: 20px;
+  margin-left: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.options:hover
+{
+  cursor: pointer;
+  text-decoration-line: underline;
+}

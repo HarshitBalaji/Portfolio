@@ -13,7 +13,7 @@ function Cal() {
     })();
   }, [])
   return (
-    <span data-cal-namespace="30min" data-cal-link="sai-harshit-b/30min" data-cal-config='{"layout":"month_view"}'>Schedule a Call!</span>
+    <span className="options" data-cal-namespace="30min" data-cal-link="sai-harshit-b/30min" data-cal-config='{"layout":"month_view"}'>Start a Conversation</span>
   )
 }
 
@@ -32,13 +32,13 @@ function CTA() {
   return (
   <div className="CTA">
     <p>Let's Build something together!</p>
-    <p>
-      <span onClick={() => {navigate('/app/about')}}>More About Me!</span>
-      <span onClick={() => {downloadCV()}}>Download my CV</span>
-      <span onClick={() => {navigate('/app/work')}}>View my Work</span>
+    <p> 
+      <span className="options" onClick={() => {navigate('/app/about')}}>About Me</span>
+      <span className="options" onClick={() => {downloadCV()}}>Download my CV</span>
+      <span className="options" onClick={() => {navigate('/app/work')}}>View my Work</span>
       <Cal />
     </p>
-    
+    <p className="options" onClick={() => {navigate('/app/contact')}}>Connect with Me!</p>
   </div>
   )
 }
@@ -51,7 +51,7 @@ function Home() {
       <div className="flex align-items-center">
             <img src={Logo} alt="logo" height="65" />
       </div>
-      <h3>Hello, I'm</h3>
+      <h3 style={{ marginTop: '50px' }}>Hello, I'm</h3>
       <h1 id="Name">Sai Harshit B</h1>
       <p>Building Platforms | Automating Workflows | Engineering Robotic Systems — Together.</p>
       <CTA />
