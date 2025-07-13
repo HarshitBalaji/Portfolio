@@ -15,7 +15,7 @@ function Navbar() {
   );
   const items = [
             { label: 'CV', icon: 'pi pi-fw pi-history', command: () => navigate('/app/about') },
-            { label: 'Works', icon: 'pi pi-fw pi-cloud-upload', command: () => navigate('/app/projects') },
+            { label: 'Works', icon: 'pi pi-fw pi-cloud-upload', command: () => navigate('/app/work') },
             { label: 'Contact', icon: 'pi pi-fw pi-users', command: () => navigate('/app/contact') },
   ]
   return (
