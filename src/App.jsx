@@ -13,7 +13,7 @@ import Display from './Pages/Display';
 import Projects from './Pages/Projects';
 import CV from './Pages/CV';
 import Contact from './Pages/Contact_Me';
-import Home from './Pages/Home';  
+import Home from './Home';  
 
 function App() {
   return (
@@ -21,19 +21,17 @@ function App() {
       <div className="app">
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Display />}>
+            <Route path= "/" element={<Home />}/>
+            <Route path="/app" element={<Display />}>
               <Route index element={<Home />} />
               <Route path="about" element={<CV />} />
               <Route path="projects" element={<Projects />} />
               <Route path="contact" element={<Contact />} />
-              <Route path="*" element={<Home />} />
             </Route>
+            <Route path="*" element={<Home />} />
           </Routes>
         </BrowserRouter>
       </div>
-      <footer>
-        <p>© 2025 Sai Harshit B</p>
-      </footer>
     </>
   )
 }

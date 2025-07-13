@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Bropella';
+  src: url('/fonts/Bropella.otf') format('opentype');
+  src: url('/fonts/Bropella.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#home {
+  background-color: #02066f;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  top: 0;
+  left: 0;
+  position: fixed; 
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(135deg, #02066f, #3f87a6);
+}
+
+#Name {
+  font-family: 'Bropella', sans-serif;
+  font-size: 4.2em;
+  line-height: 1.1;
+  margin: 0;
+}
+#bottomline {
+  position:fixed;
+  bottom: 0;
+  right:0;
+  text-align: right;
+  font-size: 0.7em;
+  margin-top: 0.5rem;
+}
