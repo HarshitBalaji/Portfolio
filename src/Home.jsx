@@ -55,7 +55,6 @@ function Home() {
       <h1 id="Name">Sai Harshit B</h1>
       <p id="tagline">Building Platforms | Automating Workflows | Engineering Robotic Systems — Together.</p>
       <CTA />
-      <p id="bottomline">sai.harshitbalaji@gmail.com</p>
     </div>
   )
 }
