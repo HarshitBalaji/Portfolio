@@ -9,14 +9,14 @@ function Navbar() {
   const navigate = useNavigate();
   return (
       <div className="navbar">
-        <span style={{ display: 'flex', alignItems: 'center' }} onClick={() => navigate('/')}>
-          <img src={Logo} alt="logo" height="50" />
-          <span style={{ fontSize: '1.5rem', fontFamily: 'Bropella', fontWeight: 'bold', height: '100%', display: 'inline-block', lineHeight: '1' }}>Sai Harshit B</span>
+        <span style={{ display: 'flex', alignItems: 'center' }}>
+          <img className="logoButton" src={Logo} alt="logo" height="50" onClick={() => navigate('/')} />
+          <span style={{ marginLeft:"1rem", fontSize: '2rem', fontFamily: 'Bropella' }}>Sai Harshit B</span>
         </span>
         <span>
           <span className="options" onClick={() => {navigate('/')}}>Home</span>
           <span className="options" onClick={() => {navigate('/app/about')}}>About Me</span>
-          <span className="options" onClick={() => {navigate('/app/work')}}>View my Work</span>
+          <span className="options" onClick={() => {navigate('/app/work')}}>My Work</span>
           <span className="options" onClick={() => {navigate('/app/contact')}}>Contact</span>
         </span>
       </div>

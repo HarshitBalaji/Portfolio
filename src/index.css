@@ -95,3 +95,8 @@ footer {
   align-items: center;
   padding: 1rem;
 }
+
+.logoButton:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px 1px rgb(86, 89, 251);
+}
