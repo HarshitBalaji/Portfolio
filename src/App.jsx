@@ -14,6 +14,10 @@ import Projects from './Pages/Projects';
 import CV from './Pages/CV';
 import Contact from './Pages/Contact_Me';
 import Home from './Home';  
+import CV_Intro from './Pages/subpages/CV_Intro';
+import CV_Experience from './Pages/subpages/CV_Experience';
+import CV_Education from './Pages/subpages/CV_Education';
+import CV_Skills from './Pages/subpages/CV_Skills';
 
 function App() {
   return (
@@ -24,7 +28,12 @@ function App() {
             <Route path= "/" element={<Home />}/>
             <Route path="/app" element={<Display />}>
               <Route index element={<Home />} />
-              <Route path="about" element={<CV />} />
+              <Route path="about" element={<CV />}>
+                <Route index element={<CV_Intro />} />
+                <Route path="experience" element={<CV_Experience />} />
+                <Route path="education" element={<CV_Education />} />
+                <Route path="skills" element={<CV_Skills />} />
+              </Route>
               <Route path="work" element={<Projects />} />
               <Route path="contact" element={<Contact />} />
             </Route>

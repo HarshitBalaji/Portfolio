@@ -8,6 +8,10 @@ import Logo from '../assets/logo.png'
 function Navbar() {
   const pageTitles = {
     '/app/about': 'About Me',
+    '/app/about/intro': 'About Me',
+    '/app/about/experience': 'Experience',
+    '/app/about/education': 'Education',
+    '/app/about/skills': 'Skills',
     '/app/work': 'My Work',
     '/app/contact': 'Contact',
   };
