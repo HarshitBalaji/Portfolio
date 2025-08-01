@@ -8,9 +8,21 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 function CV_Education() {
 
   return (
-    <>
-      <h1>Education</h1>
-    </>
+    <div id="cv-education">
+        <li>
+          <strong>Bachelor of Science in Computer Science</strong>
+          <p>XYZ University, 2020</p>
+        </li>
+        <li>
+          <strong>Master of Science in Software Engineering</strong>
+          <p>ABC University, 2022</p>
+        </li>
+        <li>
+          <strong>Certification in Full Stack Development</strong>
+          <p>Online Course, 2021</p>
+        </li>
+      
+    </div>
   )
 }
 

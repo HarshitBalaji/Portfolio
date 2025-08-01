@@ -3,7 +3,6 @@
   align-items: center;
   padding: 20px;
   border-radius: 10px;
-  height: 60%;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 #cv-intro {
@@ -23,6 +22,7 @@
 #cv-navigator {
   justify-content: space-around;
   width: 25%;
+  height: 60%;
   margin-bottom: 20px;
   margin-right: 2%;
 }
