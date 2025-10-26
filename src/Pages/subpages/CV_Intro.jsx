@@ -9,7 +9,7 @@ function CV_Intro() {
 
   return (
     <div id="cv-content">
-      <img src={ProfilePicture} alt="Profile" height="500" style={{borderRadius: "15px"}} />
+      <img src={ProfilePicture} alt="Profile" height="450" style={{borderRadius: "15px"}} />
       <div style={{ marginLeft: '20px' }}>
         <p style={{ textAlign: 'justify' }}>
           Hello! I'm <b>Sai Harshit Balaji</b>, a software engineer passionate about building efficient, scalable, and meaningful applications that bridge the gap between software and systems. With hands-on experience in <b>C#, FastAPI, ReactJS, SQL Server, and Azure</b>, I enjoy transforming complex ideas into practical solutions that improve real-world workflows. My journey in tech has been fueled by curiosity and the satisfaction of crafting reliable tools that make a difference.
