@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styles/Contact.css";
+import "../styles/contact.css";
 import { Card } from "primereact/card";
 import { InputText } from "primereact/inputtext";
 import { InputTextarea } from "primereact/inputtextarea";
