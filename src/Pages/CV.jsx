@@ -13,10 +13,10 @@ function CV() {
   return (
     <div id="cv">
       <div id="cv-navigator">
-          <div className="sidebar" onClick={() => {navigate('/app/about')}}>Intro</div>
-          <div className="sidebar" onClick={() => {navigate('/app/about/experience')}}>Experience</div>
+          <div className="sidebar" onClick={() => {navigate('/app/about')}}>The Engineer</div>
+          <div className="sidebar" onClick={() => {navigate('/app/about/experience')}}>On the Job</div>
           <div className="sidebar" onClick={() => {navigate('/app/about/education')}}>Education</div>
-          <div className="sidebar" onClick={() => {navigate('/app/about/skills')}}>Skills</div>
+          <div className="sidebar" onClick={() => {navigate('/app/about/skills')}}>Tech Stack</div>
       </div>
       <Outlet />
     </div>

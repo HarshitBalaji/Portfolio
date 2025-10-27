@@ -1,0 +1,58 @@
+.contact-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  color: #fff;
+}
+
+.contact-card, .message-card {
+  width: 100%;
+  max-width: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding:1rem;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.contact-card h2, .message-card h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #e3e8ff;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-list li {
+  margin: 0.6rem 0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-list a {
+  color: #9cd3ff;
+  text-decoration: none;
+}
+
+.contact-list a:hover {
+  text-decoration: underline;
+}
+
+.message-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.send-btn {
+  align-self: flex-start;
+  background: linear-gradient(135deg, #02066f, #3f87a6);
+  border: none;
+}

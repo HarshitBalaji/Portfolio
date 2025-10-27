@@ -13,7 +13,7 @@ function Cal() {
     })();
   }, [])
   return (
-    <span className="options" data-cal-namespace="30min" data-cal-link="sai-harshit-b/30min" data-cal-config='{"layout":"month_view"}'>Start a Conversation</span>
+    <span className="options" data-cal-namespace="30min" data-cal-link="sai-harshit-b/30min" data-cal-config='{"layout":"month_view"}'>Schedule a Chat</span>
   )
 }
 
@@ -33,12 +33,12 @@ function CTA() {
   <div className="CTA">
     <p>Let's Build something together!</p>
     <p> 
-      <span className="options" onClick={() => {navigate('/app/about')}}>About Me</span>
-      <span className="options" onClick={() => {downloadCV()}}>Download my CV</span>
-      <span className="options" onClick={() => {navigate('/app/work')}}>View my Work</span>
+      <span className="options" onClick={() => {navigate('/app/about')}}>Meet the Engineer</span>
+      <span className="options" onClick={() => {navigate('/app/contact')}}>Get in Touch</span>
+      <span className="options" onClick={() => {navigate('/app/work')}}>See What I've Built</span>
       <Cal />
+      <span className="options" onClick={() => {downloadCV()}}>Download my CV</span>
     </p>
-    <p className="options" onClick={() => {navigate('/app/contact')}}>Connect with Me!</p>
   </div>
   )
 }

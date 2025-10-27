@@ -5,19 +5,28 @@
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-#cv-intro {
+#cv-content {
   text-align: justified;
   display: flex;
   padding: 20px;
   display: flex;
   align-items: center;
+  border-radius: 10px;
+  max-width: 70%;
+  margin-bottom: 3%;
+}
+#cv-education
+{
+  text-align: justified;
+  padding: 20px;
   border-width: 2px;
   border-style: solid;
   border-color: #ccc;
   border-radius: 10px;
-  max-width: 60%;
+  min-width: 60%;
   margin-bottom: 3%;
 }
+
 
 #cv-navigator {
   justify-content: space-around;
@@ -37,7 +46,7 @@
 }
 
 .sidebar:hover {
-  background-color: #f0f0f04b;
+  background-color: rgba(255, 255, 255, 0.3);
   cursor: pointer;
-  text-decoration-line: underline;
+  font-family: 'Bropella', sans-serif;
 }
