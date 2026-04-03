@@ -1,35 +1,56 @@
 import React from "react";
+import DITLogo from '../../assets/ditlogo.jpg';
+import BMSITLogo from '../../assets/bmsitlogo.png';
+import ClarenceLogo from '../../assets/clarenceemblem.png'
 
 function CV_Education() {
   return (
-    <section id="cv-education">
-      <h2 className="cv-title">The Roadmap</h2>
+    <section id="cv-experience"  style={{textAlign: 'left'}}>
 
-      <div className="edu-item">
-        <div className="edu-head">
-          <span className="edu-degree">B.E. — Computer Science</span>
-          <span className="edu-meta">BMS Institute of Technology & Management • 2020 – 2024 • Bengaluru</span>
+      <div class="xp-item">
+        <div class="xp-head" style={{display: 'flex', alignItems: 'center'}}>
+          <img src={DITLogo} alt="Carl Zeiss Logo" height="60" style={{backgroundColor:"white", verticalAlign: 'middle', marginRight: '10px'}} />
+          <div>
+            <h2 class="xp-role">Master of Engineering in Robotics</h2>
+            <div class="xp-meta">Deggendorf Institute of Technology, Campus Cham • Mar 2026 - present • Cham, Germany</div>
+          </div>
         </div>
-        <ul className="edu-bullets">
-          <li>Final-year project: <b>Voice-controlled Robotic Arm</b> (ROS2 + MoveIt2); currently continuing hardware implementation.</li>
-          <li>Co-authored <b>3 research papers</b> with faculty (submitted to conferences; under review).</li>
-          <li>Focus areas: IoT, ML, Robotics; Robotics Club member.</li>
+        <ul class="xp-bullets">
+          <li>Focus Areas: Robotic Manipulation, Motion Planning, Embedded Control</li>
+          <li>Coursework: Robot Kinematics, Control Systems, Computer Vision, Machine Learning, Embedded Systems</li>
+          <li>Tools: ROS2 (Humble), MoveIt, RViz, Python, C/C++</li>
+          <li>Working on simulation and control using URDF, motion planning, hardware integration</li>
+          <li>Aim: Developing practical robotic systems for real-world applications</li>
         </ul>
       </div>
 
-      <div className="edu-divider" />
+      <div class="xp-item">
+        <div class="xp-head" style={{display: 'flex', alignItems: 'center'}}>
+          <img src={BMSITLogo} alt="BMSIT Logo" height="60" style={{backgroundColor:"white", verticalAlign: 'middle', marginRight: '10px'}} />
+          <div>
+            <h2 class="xp-role">Bachelor of Engineering in Computer Science and Engineering</h2>
+            <div class="xp-meta">BMS Institute of Technology & Management • Dec 2020 - Jun 2024 • Bengaluru, India</div>
+          </div>
+        </div>
+        <ul class="xp-bullets">
+          <li>CGPA: <b>7.89/10</b></li>
+          <li>Final Year Thesis: <b>Autonomous Voice Controlled Arm Robot (AVCAR)</b></li>
+          <li>Student Placement Coordinator</li>
+        </ul>
+      </div>
 
-      {/* Optional minimal milestones — include for “all-purpose” completeness */}
-      <div className="edu-minor">
-        <div className="edu-line">
-          <span className="edu-year">2018</span>
-          <span>Grade 10 — Clarence High School • <b>91.83%</b></span>
+      <div class="xp-item">
+        <div class="xp-head" style={{display: 'flex', alignItems: 'center'}}>
+          <img src={ClarenceLogo} alt="Clarence High School Logo" height="60" style={{backgroundColor:"white", verticalAlign: 'middle', marginRight: '10px'}} />
+          <div>
+            <h2 class="xp-role">Class 10(ICSE), Class 12(ISC)</h2>
+            <div class="xp-meta">Clarence High School • Jun 2017 - Jun 2020 • Bengaluru, India</div>
+          </div>
         </div>
-        <div className="edu-line">
-          <span className="edu-year">2020</span>
-          <span>Grade 12 (Electronics) — Clarence High School • <b>91.6%</b></span>
-        </div>
-        <div className="edu-note">*School milestones shown for completeness (all-purpose portfolio).</div>
+        <ul class="xp-bullets">
+          <li> Class 10 Grade: <b>91.83%</b></li>
+          <li> Class 12 Grade: <b>91.6%</b></li>
+        </ul>
       </div>
     </section>
   );
