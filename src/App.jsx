@@ -1,13 +1,5 @@
-import { useState } from 'react'
-import { getCalApi } from "@calcom/embed-react";
-import { useEffect } from "react";
-import ReactDOM from "react-dom/client";
+// Top-level route map for the portfolio.
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import 'primereact/resources/themes/md-dark-indigo/theme.css'
-import 'primereact/resources/primereact.min.css';
-import 'primeicons/primeicons.css';
-import 'primeflex/primeflex.css';
-import Logo from './assets/logo.png'
 import './App.css'
 import Display from './Pages/Display';
 import Projects from './Pages/Projects';
@@ -21,27 +13,31 @@ import CV_Skills from './Pages/subpages/CV_Skills';
 
 function App() {
   return (
-    <>
-      <div className="app">
-        <BrowserRouter>
-          <Routes>
-            <Route path= "/" element={<Home />}/>
-            <Route path="/app" element={<Display />}>
-              <Route index element={<Home />} />
-              <Route path="about" element={<CV />}>
-                <Route index element={<CV_Intro />} />
-                <Route path="experience" element={<CV_Experience />} />
-                <Route path="education" element={<CV_Education />} />
-                <Route path="skills" element={<CV_Skills />} />
-              </Route>
-              <Route path="work" element={<Projects />} />
-              <Route path="contact" element={<Contact />} />
+    <div className="app">
+      {/* BrowserRouter keeps navigation client-side for the portfolio. */}
+      <BrowserRouter>
+        <Routes>
+          {/* Public landing page. */}
+          <Route path="/" element={<Home />} />
+          {/* Shared shell for all inner pages that use the sticky header layout. */}
+          <Route path="/app" element={<Display />}>
+            {/* Default inner route keeps the same home content accessible from /app. */}
+            <Route index element={<Home />} />
+            {/* About area is split into nested sections so the sidebar can stay mounted. */}
+            <Route path="about" element={<CV />}>
+              <Route index element={<CV_Intro />} />
+              <Route path="experience" element={<CV_Experience />} />
+              <Route path="education" element={<CV_Education />} />
+              <Route path="skills" element={<CV_Skills />} />
             </Route>
-            <Route path="*" element={<Home />} />
-          </Routes>
-        </BrowserRouter>
-      </div>
-    </>
+            <Route path="work" element={<Projects />} />
+            <Route path="contact" element={<Contact />} />
+          </Route>
+          {/* Unknown routes fall back to the landing page. */}
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   )
 }
 

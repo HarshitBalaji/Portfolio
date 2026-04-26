@@ -1,75 +1,191 @@
+/* Home page sections stack vertically beneath the hero. */
 #home {
-  background-color: #02066f;
-  color: white;
-  padding: 2rem;
+  display: grid;
+  gap: 2.5rem;
+  padding: 0 0 2rem;
+}
+
+/* Desktop hero keeps the existing landing-page feel. */
+.hero-panel {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  top: 0;
-  left: 0;
-  position: fixed; 
-  height: 100%;
-  width: 100%;
-  background-image: linear-gradient(135deg, #02066f, #3f87a6);
+  padding: 1rem 24px 3rem;
+  position: relative;
+}
+
+/* The logo is slightly offset for the requested desktop alignment. */
+.home-logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  margin-bottom: 1.25rem;
+  transform: translate(4px, -5px);
+}
+
+.hero-greeting {
+  margin: 1.5rem 0 0;
+  font-size: 1.4rem;
+  font-weight: 400;
 }
 
 #Name {
   font-family: 'Bropella', sans-serif;
-  font-size: 4.2em;
-  line-height: 1.1;
-  margin: 0;
-}
-#bottomline {
-  position:fixed;
-  bottom: 0;
-  right:0;
-  text-align: right;
-  font-size: 0.7em;
-  margin-top: 0.5rem;
+  font-size: clamp(4.4rem, 8vw, 6rem);
+  line-height: 0.95;
+  margin: 0.35rem 0 0.85rem;
+  font-weight: 400;
 }
 
-.CTA
-{
+#tagline {
+  max-width: 40rem;
+  margin: 0 auto;
+  color: var(--text-soft);
+  font-size: 1.08rem;
+}
+
+/* Call-to-action block groups the quick navigation actions together. */
+.CTA {
+  margin-top: 3.5rem;
+  display: grid;
+  gap: 1rem;
+  font-size: 0.95rem;
+}
+
+.CTA p {
+  margin: 0;
+}
+
+.cta-links {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  margin-top: 200px;
+  gap: 1rem;
+}
+
+.options {
+  padding: 0.8rem 1.15rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.08);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.options:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.13);
+  text-decoration: none;
+}
+
+.home-section {
+  display: grid;
+  gap: 1.5rem;
+  padding: 0 0 1rem;
+}
+
+/* Reusable card grids for home-page summary sections. */
+.stats-grid,
+.strength-grid,
+.project-preview-grid {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.stats-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.stat-card {
+  padding: 1.4rem;
+  text-align: left;
+}
+
+.stat-card strong {
+  display: block;
+  font-family: 'Bropella', sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+
+.stat-card span {
+  color: var(--text-soft);
+}
+
+.strength-grid,
+.project-preview-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.glass-card,
+.project-preview-card {
+  padding: 1.5rem;
+}
+
+.glass-card h3,
+.project-preview-card h3 {
+  margin: 0 0 0.75rem;
   font-size: 1.2rem;
 }
 
-.options
-{
-  margin-right: 1.5rem;
-  margin-left: 1.5rem;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-.options:hover
-{
-  cursor: pointer;
-  text-decoration-line: underline;
+.glass-card p,
+.project-preview-card p {
+  margin: 0;
+  color: var(--text-soft);
 }
 
-@media only screen and (max-width: 400px) {
-  .CTA {
-    margin-top: 4rem;
+/* Home page collapses into a left-aligned mobile layout below this breakpoint. */
+@media (max-width: 900px) {
+  .hero-panel {
+    min-height: auto;
+    align-items: flex-start;
+    text-align: left;
+    padding: 5% 0 0 5%;
   }
-  .options:hover
-  {
-    cursor: pointer;
-    text-decoration-line: underline;
+
+  .home-logo {
+    justify-content: flex-start;
   }
-  #Name {
-    font-size: 2.5em;
-  }
+
   #tagline {
-    font-size: 1rem;
-  }
-  #bottomline {
-    font-size: 0.6em;
-  }
-  .options {
-    display: flex;
-    flex-direction: column;
-    margin-top: 0.3rem;
-    margin-bottom: 0.3rem;
-    font-size: 0.9em;
+    margin: 0;
   }
 
+  .CTA {
+    width: 100%;
+  }
+
+  .cta-links {
+    justify-content: flex-start;
+  }
+
+  .stats-grid,
+  .strength-grid,
+  .project-preview-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  #Name {
+    font-size: 3.4rem;
+  }
+
+  .hero-greeting {
+    margin-top: 1.75rem;
+    font-size: 1.15rem;
+  }
+
+  .cta-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .options {
+    text-align: center;
+  }
 }
