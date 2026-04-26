@@ -1,25 +1,37 @@
-import { useState } from 'react'
-import { getCalApi } from "@calcom/embed-react";
-import { useEffect } from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import {Outlet} from "react-router-dom";
+// About page shell with a sidebar for nested sections.
+import { NavLink, Outlet } from "react-router-dom";
 import '../styles/CV_stylesheet.css';
 
-function CV() {
+// Sidebar configuration for the about section.
+const sections = [
+  { label: 'The Engineer', path: '/app/about' },
+  { label: 'On the Job', path: '/app/about/experience' },
+  { label: 'Education', path: '/app/about/education' },
+  { label: 'Tech Stack', path: '/app/about/skills' },
+];
 
-  const navigate = useNavigate();
+function CV() {
   return (
-    <div id="cv">
-      <div id="cv-navigator">
-          <div className="sidebar" onClick={() => {navigate('/app/about')}}>The Engineer</div>
-          <div className="sidebar" onClick={() => {navigate('/app/about/experience')}}>On the Job</div>
-          <div className="sidebar" onClick={() => {navigate('/app/about/education')}}>Education</div>
-          <div className="sidebar" onClick={() => {navigate('/app/about/skills')}}>Tech Stack</div>
+    <section id="cv">
+      <aside id="cv-navigator">
+        {/* NavLink automatically applies active state styling for the current sub-route. */}
+        {sections.map((section) => (
+          <NavLink
+            key={section.path}
+            to={section.path}
+            end={section.path === '/app/about'}
+            className={({ isActive }) => `sidebar ${isActive ? 'is-active' : ''}`}
+          >
+            {section.label}
+          </NavLink>
+        ))}
+      </aside>
+
+      <div className="cv-panel">
+        {/* Nested about content is rendered here. */}
+        <Outlet />
       </div>
-      <Outlet />
-    </div>
+    </section>
   )
 }
 

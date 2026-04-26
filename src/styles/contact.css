@@ -1,58 +1,112 @@
+/* Desktop contact page uses a two-column split between details and form. */
 .contact-page {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  padding: 2rem;
-  color: #fff;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 1.35rem;
+  align-items: start;
 }
 
-.contact-card, .message-card {
-  width: 100%;
-  max-width: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding:1rem;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+/* Shared card treatment for both contact columns. */
+.contact-card {
+  padding: 1.6rem;
+  display: grid;
+  gap: 1.4rem;
 }
 
-.contact-card h2, .message-card h2 {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-  color: #e3e8ff;
+.contact-card h1,
+.contact-card h2 {
+  margin: 0;
+  font-family: 'Bropella', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1;
 }
 
+.form-card h2 {
+  font-size: 2rem;
+}
+
+/* Contact list rows display label/value pairs cleanly on large screens. */
 .contact-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: grid;
+  gap: 0.8rem;
 }
 
 .contact-list li {
-  margin: 0.6rem 0;
-  font-size: 1rem;
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
 }
 
-.contact-list a {
-  color: #9cd3ff;
-  text-decoration: none;
+.contact-label {
+  font-weight: 600;
 }
 
-.contact-list a:hover {
-  text-decoration: underline;
+.availability-card {
+  padding: 1.25rem;
+}
+
+.availability-card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.9rem;
 }
 
 .message-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.message-form label {
+  display: grid;
+  gap: 0.45rem;
+  color: var(--text-soft);
+}
+
+/* Form elements keep a consistent glass-style treatment. */
+.message-form input,
+.message-form textarea {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text-main);
+  padding: 0.95rem 1rem;
+  outline: none;
+}
+
+.message-form input:focus,
+.message-form textarea:focus {
+  border-color: rgba(185, 216, 255, 0.55);
+  box-shadow: 0 0 0 3px rgba(185, 216, 255, 0.1);
 }
 
 .send-btn {
-  align-self: flex-start;
-  background: linear-gradient(135deg, #02066f, #3f87a6);
-  border: none;
+  width: fit-content;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08));
+  color: var(--text-main);
+  padding: 0.85rem 1.2rem;
+}
+
+/* Contact page stacks to one column on smaller screens. */
+@media (max-width: 900px) {
+  .contact-page {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-list li {
+    flex-direction: column;
+  }
+
+  .send-btn {
+    width: 100%;
+  }
 }

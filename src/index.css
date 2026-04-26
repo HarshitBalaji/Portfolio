@@ -1,3 +1,4 @@
+/* Brand font used for major headings and display text. */
 @font-face {
   font-family: 'Bropella';
   src: url('/fonts/Bropella.otf') format('opentype');
@@ -6,98 +7,243 @@
   font-style: normal;
 }
 
-
+/* Global design tokens and page-level defaults. */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --bg-start: #02066f;
+  --bg-end: #3f87a6;
+  --bg-deep: rgba(5, 12, 79, 0.88);
+  --surface: rgba(255, 255, 255, 0.08);
+  --surface-strong: rgba(255, 255, 255, 0.14);
+  --border: rgba(255, 255, 255, 0.16);
+  --text-main: rgba(255, 255, 255, 0.92);
+  --text-soft: rgba(240, 245, 255, 0.72);
+  --link: #b9d8ff;
+  --shadow: 0 18px 60px rgba(2, 7, 47, 0.28);
+  --radius: 24px;
+  --page-gutter: 24px;
+  --content-width: min(1180px, calc(100vw - (var(--page-gutter) * 2)));
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
-  min-width: 100%;
-  min-height: 100%;
   font-weight: 400;
-  display: grid;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-image: linear-gradient(135deg, #02066f, #3f87a6);
-
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.16), transparent 32%),
+    linear-gradient(135deg, var(--bg-start), var(--bg-end));
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* Consistent box sizing keeps spacing predictable across components. */
+* {
+  box-sizing: border-box;
 }
 
+/* Smooth scrolling helps when navigating longer sections. */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base document setup. */
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  width: 100%;
-  height: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--text-main);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-header {
-  position:fixed;
-  top:0;
-  width: 100%;
+img {
+  max-width: 100%;
+  display: block;
 }
 
-.content {
-  justify-content: space-between;
+#root {
+  min-height: 100vh;
+}
+
+.site-shell {
+  min-height: 100vh;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(18px);
+  background: linear-gradient(180deg, rgba(2, 6, 60, 0.88), rgba(2, 6, 60, 0.45));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Shared content wrapper for all pages rendered inside the shell. */
+.site-content {
+  width: var(--content-width);
+  margin: 0 auto;
+  padding: 1.25rem 0 4rem;
+}
+
+.page-section {
+  padding: 2rem 0 1rem;
+}
+
+/* Shared heading block used across home, projects, and about pages. */
+.section-header {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.section-header.compact {
+  margin-bottom: 1.5rem;
+}
+
+.section-header h1,
+.section-header h2 {
+  margin: 0;
+  font-family: 'Bropella', sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.section-copy {
+  max-width: 70ch;
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 1.02rem;
+}
+
+.eyebrow {
+  display: inline-flex;
   align-items: center;
-  padding-top: 75px;
-  bottom: 75px;
-  
+  gap: 0.5rem;
+  width: fit-content;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.74rem;
+  color: var(--text-soft);
 }
 
-footer {
-  color:#ffffff;
-  padding: 1em;
-  text-align: center;
-  position:fixed;
-  bottom:0;
-  height: 75px;
-  width: 100%;
-} 
+/* Reusable glassmorphism surface treatment used by cards and panels. */
+.glass-card,
+.project-card,
+.contact-card,
+.cv-panel,
+.timeline-card,
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
 
-.navbar
-{
+.tag-row {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
+  flex-wrap: wrap;
+  gap: 0.65rem;
 }
 
-.logoButton:hover {
-  cursor: pointer;
-  box-shadow: 0 0 100px 1px rgb(86, 89, 251);
+.tag,
+.pill,
+.project-period {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  border-radius: 999px;
+}
+
+.tag,
+.pill {
+  padding: 0.55rem 0.9rem;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.project-period {
+  padding: 0.45rem 0.75rem;
+  background: rgba(255, 255, 255, 0.11);
+  color: var(--text-soft);
+  font-size: 0.86rem;
+}
+
+.project-detail-list,
+.xp-bullets {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.75rem;
+  color: var(--text-soft);
+}
+
+/* Shared project grid layout used on the main projects page. */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.35rem;
+}
+
+.project-card {
+  padding: 1.5rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.project-card h2 {
+  margin: 0;
+  font-size: 1.45rem;
+}
+
+.project-card p {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.project-card-top {
+  display: grid;
+  gap: 0.9rem;
+}
+
+/* Tablet and mobile adjustments for global layout primitives. */
+@media (max-width: 900px) {
+  :root {
+    --page-gutter: 20px;
+    --content-width: min(100vw - (var(--page-gutter) * 2), 100%);
+    --radius: 20px;
+  }
+
+  .site-content {
+    padding-bottom: 3rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header h1,
+  .section-header h2 {
+    font-size: clamp(1.9rem, 10vw, 2.8rem);
+  }
 }
