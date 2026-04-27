@@ -1,9 +1,11 @@
 // Contact page with direct links plus a lightweight email-draft form.
 import { useState } from "react";
 import "../styles/contact.css";
-import { collaborationPoints, contactLinks, profile } from "../data/portfolio";
+import { usePortfolio } from "../context/usePortfolio";
 
 function Contact_Me() {
+  const { content } = usePortfolio();
+  const { contactLinks, contactPage, profile } = content;
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -32,11 +34,9 @@ function Contact_Me() {
   return (
     <section className="page-section contact-page">
       <article className="contact-card">
-        <span className="eyebrow">Contact</span>
-        <h1>Let&apos;s talk about what we can build.</h1>
-        <p className="section-copy">
-          I enjoy conversations around full-stack applications, engineering productivity, automation, and robotics systems. If your team is building something meaningful, I&apos;d love to hear about it.
-        </p>
+        <span className="eyebrow">{contactPage.eyebrow}</span>
+        <h1>{contactPage.title}</h1>
+        <p className="section-copy">{contactPage.copy}</p>
 
         <ul className="contact-list">
           {/* Contact rows support either a clickable href or plain text when no link exists. */}
@@ -57,39 +57,30 @@ function Contact_Me() {
             </li>
           ))}
         </ul>
-
-        <div className="glass-card availability-card">
-          <h2>Best fit collaborations</h2>
-          <ul className="project-detail-list">
-            {collaborationPoints.map((point) => (
-              <li key={point}>{point}</li>
-            ))}
-          </ul>
-        </div>
       </article>
 
       <article className="contact-card form-card">
-        <span className="eyebrow">Send a note</span>
-        <h2>Reach out directly</h2>
+        <span className="eyebrow">{contactPage.noteEyebrow}</span>
+        <h2>{contactPage.noteTitle}</h2>
         <form className="message-form" onSubmit={handleSubmit}>
           {/* Keep field names aligned with formData keys. */}
           <label>
-            <span>Name</span>
+            <span>{contactPage.name}</span>
             <input name="name" value={formData.name} onChange={handleChange} required />
           </label>
           <label>
-            <span>Email</span>
+            <span>{contactPage.email}</span>
             <input name="email" type="email" value={formData.email} onChange={handleChange} required />
           </label>
           <label>
-            <span>Subject</span>
-            <input name="subject" value={formData.subject} onChange={handleChange} placeholder="Project, role, or collaboration idea" />
+            <span>{contactPage.subject}</span>
+            <input name="subject" value={formData.subject} onChange={handleChange} placeholder={contactPage.subjectPlaceholder} />
           </label>
           <label>
-            <span>Message</span>
+            <span>{contactPage.message}</span>
             <textarea name="message" value={formData.message} onChange={handleChange} rows="6" required />
           </label>
-          <button className="send-btn" type="submit">Open Email Draft</button>
+          <button className="send-btn" type="submit">{contactPage.submit}</button>
         </form>
       </article>
     </section>

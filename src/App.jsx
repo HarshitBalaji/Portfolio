@@ -10,10 +10,13 @@ import CV_Intro from './Pages/subpages/CV_Intro';
 import CV_Experience from './Pages/subpages/CV_Experience';
 import CV_Education from './Pages/subpages/CV_Education';
 import CV_Skills from './Pages/subpages/CV_Skills';
+import CV_Research from './Pages/subpages/CV_Research';
+import { LanguageProvider } from './context/LanguageContext';
 
 function App() {
   return (
-    <div className="app">
+    <LanguageProvider>
+      <div className="app">
       {/* BrowserRouter keeps navigation client-side for the portfolio. */}
       <BrowserRouter>
         <Routes>
@@ -27,6 +30,7 @@ function App() {
             <Route path="about" element={<CV />}>
               <Route index element={<CV_Intro />} />
               <Route path="experience" element={<CV_Experience />} />
+              <Route path="research" element={<CV_Research />} />
               <Route path="education" element={<CV_Education />} />
               <Route path="skills" element={<CV_Skills />} />
             </Route>
@@ -37,7 +41,8 @@ function App() {
           <Route path="*" element={<Home />} />
         </Routes>
       </BrowserRouter>
-    </div>
+      </div>
+    </LanguageProvider>
   )
 }
 

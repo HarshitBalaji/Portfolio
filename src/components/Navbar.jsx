@@ -2,29 +2,20 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Logo from '../assets/logo.png'
-import { navItems } from '../data/portfolio';
+import { usePortfolio } from '../context/usePortfolio';
 
 function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { content, language, toggleLanguage } = usePortfolio();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  // These titles are shown next to the logo so the current section is obvious.
-  const pageTitles = {
-    '/app/about': 'The Engineer',
-    '/app/about/experience': 'Professional Experience',
-    '/app/about/education': 'Education',
-    '/app/about/skills': 'Tech Stack',
-    '/app/work': 'Projects',
-    '/app/contact': 'Get in Touch',
-  };
 
   // Close the mobile menu whenever the route changes.
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location.pathname]);
 
-  const pageTitle = pageTitles[location.pathname] || 'Portfolio';
+  const pageTitle = content.pageTitles[location.pathname] || 'Portfolio';
 
   return (
     <div className="navbar">
@@ -48,7 +39,7 @@ function Navbar() {
 
       {/* Navigation items come from shared data so labels and routes live in one place. */}
       <nav className={`nav-links ${isMenuOpen ? 'is-open' : ''}`}>
-        {navItems.map((item) => (
+        {content.navItems.map((item) => (
           <button
             key={item.path}
             type="button"
@@ -58,6 +49,14 @@ function Navbar() {
             {item.label}
           </button>
         ))}
+        <button
+          type="button"
+          className="language-toggle"
+          onClick={toggleLanguage}
+          aria-label={`Switch language to ${content.language.label}`}
+        >
+          {language.toUpperCase()} / {content.language.short}
+        </button>
       </nav>
     </div>
   )

@@ -4,16 +4,16 @@ import { useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import './Home.css'
 import Logo from './assets/logo.png'
-import { highlightStats, profile, projects, strengths } from './data/portfolio';
+import { usePortfolio } from './context/usePortfolio';
 
-function Cal() {
+function Cal({ home, profile }) {
   // Load the Cal.com embed once so the schedule CTA can open the configured event.
   useEffect(() => {
     (async function () {
       const cal = await getCalApi({ namespace: profile.calNamespace });
       cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
     })();
-  }, [])
+  }, [profile.calNamespace])
 
   return (
     <span
@@ -22,12 +22,12 @@ function Cal() {
       data-cal-link={profile.calLink}
       data-cal-config='{"layout":"month_view"}'
     >
-      Schedule a Chat
+      {home.ctaSchedule}
     </span>
   )
 }
 
-function downloadCV() {
+function downloadCV(profile) {
   // Trigger a browser download for the hosted PDF resume.
   const link = document.createElement('a');
   link.href = profile.cvPath;
@@ -39,23 +39,28 @@ function downloadCV() {
 
 function CTA() {
   const navigate = useNavigate();
+  const { content } = usePortfolio();
+  const { home, profile } = content;
 
   return (
     <div className="CTA">
-      <p>Let&apos;s build something together!</p>
+      <p>{home.ctaLead}</p>
       {/* These quick actions are intentionally high-visibility on the landing page. */}
       <div className="cta-links">
-        <span className="options" onClick={() => { navigate('/app/about') }}>Meet the Engineer</span>
-        <span className="options" onClick={() => { navigate('/app/contact') }}>Get in Touch</span>
-        <span className="options" onClick={() => { navigate('/app/work') }}>See What I&apos;ve Built</span>
-        <Cal />
-        <span className="options" onClick={() => { downloadCV() }}>Download my CV</span>
+        <span className="options" onClick={() => { navigate('/app/about') }}>{home.ctaAbout}</span>
+        <span className="options" onClick={() => { navigate('/app/contact') }}>{home.ctaContact}</span>
+        <span className="options" onClick={() => { navigate('/app/work') }}>{home.ctaWork}</span>
+        <Cal home={home} profile={profile} />
+        <span className="options" onClick={() => { downloadCV(profile) }}>{home.ctaCv}</span>
       </div>
     </div>
   )
 }
 
 function Home() {
+  const { content } = usePortfolio();
+  const { highlightStats, home, profile, projects, strengths } = content;
+
   return (
     <div id="home">
       {/* Hero section keeps the desktop-first landing layout. */}
@@ -63,7 +68,7 @@ function Home() {
       <div className="home-logo">
         <img src={Logo} alt="logo" height="63" />
       </div>
-        <h3 className="hero-greeting">Hello, I&apos;m</h3>
+        <h3 className="hero-greeting">{home.greeting}</h3>
         <h1 id="Name">{profile.name}</h1>
         <p id="tagline">{profile.tagline}</p>
         <CTA />
@@ -72,8 +77,8 @@ function Home() {
       {/* Short summary section for first-time visitors. */}
       <section className="home-section quick-intro">
         <div className="section-header">
-          <span className="eyebrow">At a glance</span>
-          <h2>Engineering software that feels useful from day one.</h2>
+          <span className="eyebrow">{home.glanceEyebrow}</span>
+          <h2>{home.glanceTitle}</h2>
         </div>
         <p className="section-copy">{profile.intro}</p>
         <div className="stats-grid">
@@ -89,8 +94,8 @@ function Home() {
       {/* Strength cards explain the main themes of the portfolio. */}
       <section className="home-section strengths-section">
         <div className="section-header">
-          <span className="eyebrow">What I focus on</span>
-          <h2>Software, systems, and automation that solve practical problems.</h2>
+          <span className="eyebrow">{home.strengthsEyebrow}</span>
+          <h2>{home.strengthsTitle}</h2>
         </div>
         <div className="strength-grid">
           {strengths.map((strength) => (
@@ -105,8 +110,8 @@ function Home() {
       {/* Home page project preview reuses the first three project records. */}
       <section className="home-section featured-projects">
         <div className="section-header">
-          <span className="eyebrow">Selected work</span>
-          <h2>A few projects that reflect how I like to build.</h2>
+          <span className="eyebrow">{home.selectedEyebrow}</span>
+          <h2>{home.selectedTitle}</h2>
         </div>
         <div className="project-preview-grid">
           {projects.slice(0, 3).map((project) => (

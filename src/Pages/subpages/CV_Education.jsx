@@ -2,7 +2,7 @@
 import DITLogo from '../../assets/ditlogo.jpg';
 import BMSITLogo from '../../assets/bmsitlogo.png';
 import ClarenceLogo from '../../assets/clarenceemblem.png'
-import { education } from '../../data/portfolio';
+import { usePortfolio } from '../../context/usePortfolio';
 
 // Map short logo keys from the data file to imported image assets.
 const logos = {
@@ -12,11 +12,14 @@ const logos = {
 };
 
 function CV_Education() {
+  const { content } = usePortfolio();
+  const { education, educationHeader } = content;
+
   return (
     <section className="timeline-section">
       <div className="section-header compact">
-        <span className="eyebrow">Education</span>
-        <h1>Foundations in software engineering and robotics systems.</h1>
+        <span className="eyebrow">{educationHeader.eyebrow}</span>
+        <h1>{educationHeader.title}</h1>
       </div>
 
       <div className="timeline-list">
