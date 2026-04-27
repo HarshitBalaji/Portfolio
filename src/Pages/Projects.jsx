@@ -1,15 +1,16 @@
 // Standalone projects page.
-import { projects } from '../data/portfolio';
+import { usePortfolio } from '../context/usePortfolio';
 
 function Projects() {
+  const { content } = usePortfolio();
+  const { projects, projectsPage } = content;
+
   return (
     <section className="page-section projects-page">
       <div className="section-header">
-        <span className="eyebrow">Projects</span>
-        <h1>Built to make engineering work more effective.</h1>
-        <p className="section-copy">
-          My best work usually combines clean product thinking with practical systems knowledge. These projects reflect that balance across software, automation, and robotics.
-        </p>
+        <span className="eyebrow">{projectsPage.eyebrow}</span>
+        <h1>{projectsPage.title}</h1>
+        <p className="section-copy">{projectsPage.copy}</p>
       </div>
 
       <div className="projects-grid">
@@ -33,6 +34,12 @@ function Projects() {
                 <span key={item} className="tag">{item}</span>
               ))}
             </div>
+
+            {project.repo && (
+              <a className="project-repo-link" href={project.repo} target="_blank" rel="noreferrer">
+                {projectsPage.repoLabel}
+              </a>
+            )}
           </article>
         ))}
       </div>

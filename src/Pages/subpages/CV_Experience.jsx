@@ -1,7 +1,7 @@
 // Experience timeline for the about section.
 import ZeissLogo from '../../assets/zeisslogo.png';
 import CairLogo from '../../assets/cairlogo.png';
-import { experience } from '../../data/portfolio';
+import { usePortfolio } from '../../context/usePortfolio';
 
 // Map short logo keys from the data file to imported image assets.
 const logos = {
@@ -10,11 +10,14 @@ const logos = {
 };
 
 function CV_Experience() {
+  const { content } = usePortfolio();
+  const { experience, experienceHeader } = content;
+
   return (
     <section className="timeline-section">
       <div className="section-header compact">
-        <span className="eyebrow">Experience</span>
-        <h1>Shipping tools, platforms, and engineering improvements.</h1>
+        <span className="eyebrow">{experienceHeader.eyebrow}</span>
+        <h1>{experienceHeader.title}</h1>
       </div>
 
       <div className="timeline-list">

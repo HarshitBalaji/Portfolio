@@ -1,8 +1,11 @@
 // Intro section for the about page.
 import ProfilePicture from '../../assets/profilepic.jpg';
-import { profile } from '../../data/portfolio';
+import { usePortfolio } from '../../context/usePortfolio';
 
 function CV_Intro() {
+  const { content } = usePortfolio();
+  const { introTags, profile } = content;
+
   return (
     <section id="cv-content" className="intro-layout">
       <div className="intro-image-wrap">
@@ -16,11 +19,9 @@ function CV_Intro() {
         <p>{profile.intro}</p>
         <p>{profile.currentFocus}</p>
         <div className="tag-row">
-          <span className="tag">React</span>
-          <span className="tag">FastAPI</span>
-          <span className="tag">Automation</span>
-          <span className="tag">Robotics</span>
-          <span className="tag">Azure</span>
+          {introTags.map((tag) => (
+            <span className="tag" key={tag}>{tag}</span>
+          ))}
         </div>
       </div>
     </section>

@@ -1,12 +1,15 @@
 // Skills section for the about area.
-import { learningNow, skillGroups } from '../../data/portfolio';
+import { usePortfolio } from '../../context/usePortfolio';
 
 function CV_Skills() {
+  const { content } = usePortfolio();
+  const { learningNow, skillGroups, skillsHeader } = content;
+
   return (
     <section id="cv-skills">
       <div className="section-header compact">
-        <span className="eyebrow">Tech stack</span>
-        <h1>Tools and systems I like working with.</h1>
+        <span className="eyebrow">{skillsHeader.eyebrow}</span>
+        <h1>{skillsHeader.title}</h1>
       </div>
 
       {/* Skill groups are data-driven so adding a new group only requires data changes. */}
@@ -24,7 +27,7 @@ function CV_Skills() {
       <div className="skill-divider" />
 
       <div className="skill-row">
-        <div className="skill-label">Currently Learning</div>
+        <div className="skill-label">{skillsHeader.learningLabel}</div>
         <div className="pill-wrap">
           {learningNow.map((item) => (
             <span className="pill pill-soft" key={item}>{item}</span>

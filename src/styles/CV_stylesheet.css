@@ -124,6 +124,32 @@
   color: var(--text-soft);
 }
 
+.research-card {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.research-card-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.research-summary {
+  margin: 0;
+  color: var(--text-main);
+}
+
+.research-publication {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.award-pill {
+  background: rgba(185, 216, 255, 0.18);
+  color: var(--text-main);
+}
+
 /* Skills section uses a label column and a flexible badge grid. */
 #cv-skills {
   display: grid;
