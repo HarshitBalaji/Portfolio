@@ -211,7 +211,7 @@ export const learningNow = [
 export const contactLinks = [
   { label: "LinkedIn", value: "linkedin.com/in/sai-harshit-b-4ba3411b5", href: "https://www.linkedin.com/in/sai-harshit-b-4ba3411b5/" },
   { label: "Email", value: "saiharshitbalaji@gmail.com", href: "mailto:saiharshitbalaji@gmail.com" },
-  { label: "Phone", value: "+91 8431003590" },
+  { label: "Phone", value: ["+91 8431-413-590  ,   +49 1551-072-6067"] },
   { label: "GitHub", value: "github.com/HarshitBalaji", href: "https://github.com/HarshitBalaji" },
   { label: "X", value: "@harshit_balaji", href: "https://x.com/harshit_balaji" },
   { label: "ORCID", value: "0009-0002-2376-5914", href: "https://orcid.org/0009-0002-2376-5914" },

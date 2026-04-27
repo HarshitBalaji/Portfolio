@@ -23,12 +23,12 @@
   align-items: center;
   justify-content: flex-start;
   align-self: stretch;
-  margin-bottom: 1.25rem;
-  transform: translate(4px, -5px);
+  margin-bottom: 1rem;
+  transform: translate(0.25rem, 0.25rem);
 }
 
 .hero-greeting {
-  margin: 1.5rem 0 0;
+  margin: 1.5rem 0 0.75rem 0;
   font-size: 1.4rem;
   font-weight: 400;
 }
@@ -37,7 +37,7 @@
   font-family: 'Bropella', sans-serif;
   font-size: clamp(4.4rem, 8vw, 6rem);
   line-height: 0.95;
-  margin: 0.35rem 0 0.85rem;
+  margin: 0.35rem 0 0.85rem 0.25rem;
   font-weight: 400;
 }
 
@@ -97,6 +97,8 @@
 
 .stats-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 .stat-card {
@@ -109,7 +111,7 @@
   font-family: 'Bropella', sans-serif;
   font-size: 2rem;
   font-weight: 400;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.35rem;
 }
 
 .stat-card span {
@@ -119,6 +121,8 @@
 .strength-grid,
 .project-preview-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 .glass-card,
@@ -138,13 +142,19 @@
   color: var(--text-soft);
 }
 
+.section-header,
+.section-copy {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 /* Home page collapses into a left-aligned mobile layout below this breakpoint. */
 @media (max-width: 900px) {
   .hero-panel {
     min-height: auto;
     align-items: flex-start;
-    text-align: left;
-    padding: 5% 0 0 5%;
+    text-align: center;
+    
   }
 
   .home-logo {
@@ -163,11 +173,12 @@
     justify-content: flex-start;
   }
 
-  .stats-grid,
-  .strength-grid,
-  .project-preview-grid {
-    grid-template-columns: 1fr;
+  .section-header,
+  .section-copy {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
+  
 }
 
 @media (max-width: 600px) {
@@ -187,5 +198,10 @@
 
   .options {
     text-align: center;
+  }
+  .section-header,
+  .section-copy {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 }
