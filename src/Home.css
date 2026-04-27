@@ -178,6 +178,14 @@
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
+
+  .strength-grid,
+  .stats-grid,
+  .project-preview-grid
+  {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
   
 }
 
@@ -198,10 +206,5 @@
 
   .options {
     text-align: center;
-  }
-  .section-header,
-  .section-copy {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
   }
 }
