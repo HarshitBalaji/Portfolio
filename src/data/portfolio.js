@@ -2,7 +2,7 @@
 // Update these objects when you want to change text, labels, or repeated sections
 // without hunting through multiple components.
 export const profile = {
-  name: "Sai Harshit B",
+  name: "Sai Harshit Balaji",
   fullName: "Sai Harshit Balaji",
   title: "Software Engineer | Automation Builder | Robotics Engineer",
   tagline: "Building platforms, automating workflows, and engineering robotic systems - together.",
