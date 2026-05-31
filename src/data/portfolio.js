@@ -246,7 +246,7 @@ export const portfolioContent = {
         title: "Fed-AE: Privacy-Preserving and Zero-Day Intrusion Detection for IoT Edge Networks",
         year: "2026",
         conference: "IEEE Madhya Pradesh Section Conference (MPCON 2026)",
-        publication: "Under process for publication in IEEE.",
+        publication: "Published in IEEE Xplore. DOI: 10.1109/MPCON69668.2026.11508422.",
         summary:
           "Proposed Fed-AE, a federated semi-supervised intrusion detection framework for IoT edge networks that detects anomalies without sharing raw traffic data.",
         contributions: [
@@ -541,7 +541,7 @@ export const portfolioContent = {
         title: "Fed-AE: Privacy-Preserving and Zero-Day Intrusion Detection for IoT Edge Networks",
         year: "2026",
         conference: "IEEE Madhya Pradesh Section Conference (MPCON 2026)",
-        publication: "In Veroffentlichung bei IEEE.",
+        publication: "In IEEE Xplore veroffentlicht. DOI: 10.1109/MPCON69668.2026.11508422.",
         summary:
           "Fed-AE ist ein federiertes, semi-supervised Intrusion-Detection-Framework fur IoT-Edge-Netzwerke, das Anomalien erkennt, ohne Rohdaten zu teilen.",
         contributions: [
